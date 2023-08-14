@@ -2,6 +2,12 @@
 
 #include "ofMain.h"
 
+struct Particle {
+    ofVec3f position;
+    ofVec3f velocity;
+    float lifespan = 100.0f; // in frames
+};
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -25,8 +31,17 @@ class ofApp : public ofBaseApp{
         vector<ofVec3f> velocities;
         vector<float> radii;
         vector<ofColor> colors;
+        vector<Particle> particles;
+
         ofEasyCam cam;
         ofLight pointLight;
-        int numSpheres = 1000;
+        ofSoundPlayer sound;
+        float *spectrum;
+        int bands;
+
+        int numSpheres = 500;
+        float connectionDistance = 100.0f;
+        int numGravityWells = 5;
+        float mouseForce = 200.0f;
 		
 };
